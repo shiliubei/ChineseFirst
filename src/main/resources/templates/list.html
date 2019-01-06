@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Word List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Word List</h1>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Word</th>
+            <th>Translation</th>
+        </tr>
+        <tr th:each="cword : ${cwords}">
+            <td th:utext="${cword.hieroglyph}">...</td>
+            <td th:utext="${cword.meaning}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

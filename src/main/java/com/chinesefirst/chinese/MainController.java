@@ -12,6 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
+    private static List<Cword> cwords = new ArrayList<Cword>();
+
+    static {
+        cwords.add(new Cword("天", "sky"));
+        cwords.add(new Cword("火", "fire"));
+    }
+
+    @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
+    public String list(Model model) {
+        model.addAttribute("cwords", cwords);
+        return "list";
+    }
+
 
     private static List<Word> words = new ArrayList<Word>();
 
